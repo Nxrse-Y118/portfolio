@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --card: #12162a;
+      --text: #e6e9ff;
+      --muted: #9aa0ff;
+      --accent: #7c8cff;
+      --accent-2: #5eead4;
+      --border: rgba(255,255,255,.08);
+      --shadow: 0 20px 40px rgba(0,0,0,.35);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Noto Sans Thai', Arial;
+      color: var(--text); background: radial-gradient(1200px 600px at 10% -10%, #1a2050, transparent 60%), var(--bg);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* Layout */
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    header {
+      position: sticky; top: 0; backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,15,26,.75), rgba(11,15,26,.35));
+      border-bottom: 1px solid var(--border); z-index: 50;
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .nav a.logo { font-weight: 800; letter-spacing: .5px; }
+    .nav .links { display: flex; gap: 14px; }
+    .btn {
+      padding: 10px 14px; border-radius: 12px; border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: var(--shadow); cursor: pointer;
+    }
+    .btn.primary { border-color: transparent; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #0b1020; }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; align-items: center; padding: 56px 0; }
+    .badge { display: inline-flex; gap: 8px; align-items: center; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+    h1 { font-size: clamp(28px, 4vw, 48px); line-height: 1.1; margin: 12px 0; }
+    .gradient { background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow);
+    }
+    .avatar { aspect-ratio: 1; border-radius: 24px; overflow: hidden; }
+
+    /* Sections */
+    section { padding: 40px 0; }
+    .section-title { font-size: 22px; margin-bottom: 16px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .item { padding: 16px; }
+    .item h3 { margin: 8px 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { font-size: 12px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 24px 0; color: var(--muted); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 520px) {
+      .grid { grid-template-columns: 1fr; }
+      .nav .links { display: none; }
+    }
+
+    /* Light mode */
+    body.light {
+      --bg: #f7f8ff; --card: #ffffff; --text: #0b1020; --muted: #5b63ff; --border: rgba(0,0,0,.08);
+      background: radial-gradient(1200px 600px at 10% -10%, #e8ebff, transparent 60%), var(--bg);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#">PORTFOLIO</a>
+      <div class="links">
+        <a href="#about">เกี่ยวกับ</a>
+        <a href="#skills">ทักษะ</a>
+        <a href="#projects">ผลงาน</a>
+        <a href="#contact">ติดต่อ</a>
+      </div>
+      <div style="display:flex; gap:8px;">
+        <button class="btn" id="themeBtn">🌙</button>
+        <a class="btn primary" href="#contact">Hire Me</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="badge">✨ Portfolio Template</span>
+        <h1>สวัสดี ฉันคือ <span class="gradient">Your Name</span><br/>Web / Software Developer</h1>
+        <p style="color:var(--muted)">สร้างเว็บแอปที่สวยงาม เร็ว และใช้งานง่าย ด้วยเทคโนโลยีสมัยใหม่</p>
+        <div style="display:flex; gap:12px; margin-top:16px;">
+          <a class="btn primary" href="#projects">ดูผลงาน</a>
+          <a class="btn" href="#contact">ติดต่อ</a>
+        </div>
+      </div>
+      <div class="card avatar">
+        <!-- ใส่รูปโปรไฟล์แทนที่ได้ -->
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7c8cff"/><stop offset="100%" stop-color="#5eead4"/></linearGradient></defs>
+          <rect width="200" height="200" fill="url(#g)"/>
+          <text x="100" y="110" text-anchor="middle" fill="#0b1020" font-size="20" font-weight="700">Your Photo</text>
+        </svg>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">เกี่ยวกับฉัน</h2>
+      <div class="card item">
+        <p>อธิบายประสบการณ์ ความสนใจ และเป้าหมายทางอาชีพโดยย่อ สามารถแก้ไขข้อความนี้ได้ตามต้องการ</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">ทักษะ</h2>
+      <div class="grid">
+        <div class="card item"><h3>Frontend</h3><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">React</span></div></div>
+        <div class="card item"><h3>Backend</h3><div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">REST</span></div></div>
+        <div class="card item"><h3>Tools</h3><div class="tags"><span class="tag">Git</span><span class="tag">Docker</span><span class="tag">Figma</span></div></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">ผลงาน</h2>
+      <div class="grid">
+        <div class="card item"><h3>Project A</h3><p>คำอธิบายสั้น ๆ ของโปรเจกต์</p></div>
+        <div class="card item"><h3>Project B</h3><p>คำอธิบายสั้น ๆ ของโปรเจกต์</p></div>
+        <div class="card item"><h3>Project C</h3><p>คำอธิบายสั้น ๆ ของโปรเจกต์</p></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">ติดต่อ</h2>
+      <div class="card item">
+        <p>Email: your@email.com</p>
+        <p>GitHub / LinkedIn / Facebook</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Your Name. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('themeBtn');
+    const year = document.getElementById('year');
+    year.textContent = new Date().getFullYear();
+
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') document.body.classList.add('light');
+    btn.textContent = document.body.classList.contains('light') ? '☀️' : '🌙';
+
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('light');
+      const isLight = document.body.classList.contains('light');
+      btn.textContent = isLight ? '☀️' : '🌙';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>
